@@ -10,6 +10,10 @@ export const Fundo = styled(Imagem)`
     top: 0;
     justify-content: space-between;
     color: #e66767;
+
+    a {
+      color: #e66767;
+    }
   }
 `
 

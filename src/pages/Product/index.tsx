@@ -3,12 +3,13 @@ import logo from '../../assets/logo.png'
 import macarrao from '../../assets/fundo-macarrao.png'
 import { Apresentacao, Fundo, Titulo, Titulo2 } from './styles'
 import CardapioList from '../../components/CardapioList'
+import { Link } from 'react-router-dom'
 
 const Product = () => (
   <>
     <Fundo style={{ backgroundImage: `url(${banner})` }}>
       <div className="container">
-        <p>Restaurantes</p>
+        <Link to="/">Restaurantes</Link>
         <img src={logo} alt="logo" />
         <p>0 produto(s) no carrinho</p>
       </div>
