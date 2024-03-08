@@ -1,34 +1,61 @@
 import { Link } from 'react-router-dom'
 import estrela from '../../assets/estrela.png'
 import * as S from './styles'
+import Tag from '../Tag'
 
 type Props = {
-  title: string
-  tag: string[]
-  image: string
-  description: string
-  nota?: number
+  titulo: string
+  capa: string
+  descricao: string
+  avaliacao: number
+  destacado: boolean
+  tipo: string
+  id: number
 }
 
-const Product = ({ description, image, tag, title, nota }: Props) => {
+const Product = ({
+  descricao,
+  capa,
+  titulo,
+  avaliacao,
+  destacado,
+  tipo,
+  id
+}: Props) => {
+  const getDescription = (text: string) => {
+    if (text.length > 95) {
+      return text.slice(0, 290) + '...'
+    }
+    return text
+  }
+
+  const getDestaque = (destacado: boolean) => {
+    if (destacado === true) {
+      return 'Destaque da semana'
+    }
+    return destacado
+  }
+
   return (
     <>
-      <S.Card>
-        <img src={image} alt={title} />
+      <S.Card
+        title={`Clique aqui para ver mais sobre: ${titulo}`}
+        to={`/product/${id}`}
+      >
+        <img src={capa} alt={titulo} />
         <S.Infos>
-          {tag.map((tag) => (
-            <S.TagContainer key={tag}>{tag}</S.TagContainer>
-          ))}
+          <>{destacado ? <Tag>{getDestaque(destacado)}</Tag> : null}</>
+          <Tag>{tipo}</Tag>
         </S.Infos>
         <S.CardInfos>
           <S.Container>
-            <S.Title>{title}</S.Title>
+            <S.Title>{titulo}</S.Title>
             <S.Nota>
-              <p>{nota}</p>
+              <p>{avaliacao}</p>
               <img src={estrela} alt="Star" />
             </S.Nota>
           </S.Container>
-          <S.Descricao>{description}</S.Descricao>
+          <S.Descricao>{getDescription(descricao)}</S.Descricao>
           <S.Button>
             <Link to="/product">Saiba mais</Link>
           </S.Button>

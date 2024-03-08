@@ -1,26 +1,30 @@
 import Product from '../Product'
 import { Container, List } from './styles'
-import Cardapio from '../../models/Cardapio'
 
 export type Props = {
   background: 'branco' | 'rosa'
   cardapios: Cardapio[]
+  id?: string
 }
 
-const ProductList = ({ background, cardapios }: Props) => (
-  <Container background={background}>
+const ProductList = ({ background, cardapios, id }: Props) => (
+  <Container id={id} background={background}>
     <div className="container">
       <List>
-        {cardapios.map((cardapio) => (
-          <Product
-            key={cardapio.id}
-            title={cardapio.title}
-            tag={cardapio.tag}
-            image={cardapio.image}
-            description={cardapio.description}
-            nota={cardapio.nota}
-          />
-        ))}
+        {cardapios &&
+          cardapios.map((cardapios) => (
+            <li key={cardapios.id}>
+              <Product
+                id={cardapios.id}
+                titulo={cardapios.titulo}
+                capa={cardapios.capa}
+                descricao={cardapios.descricao}
+                avaliacao={cardapios.avaliacao}
+                destacado={cardapios.destacado}
+                tipo={cardapios.tipo}
+              />
+            </li>
+          ))}
       </List>
     </div>
   </Container>

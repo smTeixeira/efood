@@ -5,6 +5,15 @@ export const Fundo = styled(Imagem)`
   height: 200px;
   display: flex;
   margin: 0;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 125px;
+    height: 58px;
+    position: absolute;
+    display: flex;
+  }
 
   .container {
     top: 0;
