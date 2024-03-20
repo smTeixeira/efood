@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { cores } from '../../styles'
-import { TagContainer } from '../Tag/styles'
 
 export const Card = styled(Link)`
   max-width: 473px;
@@ -14,6 +13,7 @@ export const Card = styled(Link)`
     display: block;
     width: 100%;
     max-height: 210px;
+    object-fit: cover;
   }
 `
 

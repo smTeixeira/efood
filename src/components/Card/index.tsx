@@ -3,6 +3,9 @@ import { useState } from 'react'
 import fechar from '../../assets/close.png'
 
 import * as S from './styles'
+import { add, open } from '../../store/reducers/cart'
+
+import { useDispatch } from 'react-redux'
 
 type ModalState = {
   isVisible: boolean
@@ -31,6 +34,21 @@ const Card = ({ foto, nome, descricao, porcao, preco, id }: Prato) => {
       return descricao.slice(0, 117) + '...'
     }
     return descricao
+  }
+
+  const prato = {
+    foto,
+    nome,
+    descricao,
+    porcao,
+    preco,
+    id
+  }
+
+  const dispatch = useDispatch()
+  const addToCart = () => {
+    dispatch(add(prato))
+    dispatch(open())
   }
 
   return (
@@ -72,7 +90,7 @@ const Card = ({ foto, nome, descricao, porcao, preco, id }: Prato) => {
               <h4>{nome}</h4>
               <p>{descricao}</p>
               <p>Serve: {porcao}</p>
-              <S.BotaoAdicionar>
+              <S.BotaoAdicionar onClick={addToCart}>
                 Adicionar ao carrinho - {formataPreco(preco)}
               </S.BotaoAdicionar>
             </S.InfosContainer>
