@@ -33,6 +33,10 @@ export const SideBar = styled.aside`
   padding: 40px 16px 0 16px;
   max-width: 360px;
   width: 100%;
+
+  span {
+    color: ${cores.branca};
+  }
 `
 
 export const ContainerPrices = styled.div`

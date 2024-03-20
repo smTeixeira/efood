@@ -44,10 +44,10 @@ const Cart = () => {
             <BotaoAdicionar>Continuar com a entrega</BotaoAdicionar>
           </>
         ) : (
-          <p className="empty-text">
+          <span>
             O carrinho está vazio, adicione pelo menos um produto para continuar
             com a compra
-          </p>
+          </span>
         )}
       </S.SideBar>
     </S.CartContainer>
