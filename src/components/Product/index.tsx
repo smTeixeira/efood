@@ -57,7 +57,7 @@ const Product = ({
           </S.Container>
           <S.Descricao>{getDescription(descricao)}</S.Descricao>
           <S.Button>
-            <Link to="/product">Saiba mais</Link>
+            <Link to={`/product/${id}`}>Saiba mais</Link>
           </S.Button>
         </S.CardInfos>
       </S.Card>
